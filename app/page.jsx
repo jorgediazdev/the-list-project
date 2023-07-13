@@ -59,7 +59,7 @@ const HomePage = () => {
         </div>
         {
           session?.user && listId === session?.user.id && <div onClick={handleAddItemOnClick} className="flex items-center mt-5 hover:cursor-pointer">
-            <button className="flex font-semibold border rounded-lg border-black p-1 items-center">
+            <button className="flex font-semibold border rounded-lg drop-shadow-md p-1 items-center bg-orange-300">
               <span className="mr-1">{formTitle}</span>
               <AiOutlinePlus />
             </button>

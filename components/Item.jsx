@@ -70,10 +70,10 @@ const Item = ({ item, listId, index, setItems, setShowItemForm, setItemToEdit, s
 
   return (
     <>
-      <div className="px-1 flex items-center min-h-[100px] border-b shrink-0">
+      <div className={`${item.obtained && session?.user.id !== item.owner && item.obtainedBy !== session?.user.id && "opacity-30"} item px-1 flex items-center min-h-[100px] my-1 rounded-lg shrink-0 shadow bg-zinc-50 border`}>
         {/* <span>{index + 1}.</span> */}
         <div className="flex flex-col w-1/3">
-          <div className={`${item.obtained && session?.user.id !== item.owner && "line-through"} decoration-black`}>{item.title}</div>
+          <div className={`${item.obtained && session?.user.id !== item.owner && "line-through"} decoration-black font-bold`}>{item.title}</div>
           {item.link && <Link href={item.link} target="_blank" className="text-blue-700 hover:text-blue-300 mt-1">Link to Item</Link>}
         </div>
         <div className="flex w-1/3 justify-center">
@@ -81,17 +81,17 @@ const Item = ({ item, listId, index, setItems, setShowItemForm, setItemToEdit, s
         </div>
         {
           session?.user && session?.user.id === listId ? <div className="flex w-1/3 justify-center">
-            <button onClick={() => handleOnDelete(item._id)} className="p-1 mr-5">Delete</button>
-            <button onClick={onEditClick}>Edit</button>
+            <button className="bg-blue-300 rounded-lg p-1 mr-5 w-20 text-black font-semibold drop-shadow-md" onClick={onEditClick}>Edit</button>
+            <button className="bg-red-300 rounded-lg text-black font-semibold p-1 w-20 drop-shadow-md" onClick={() => handleOnDelete(item._id)}>Delete</button>
           </div>
             :
             <div className="flex w-1/3 justify-center">
               {
                 item.obtainedBy === session?.user.id
                   ?
-                  <button onClick={onUndoClick} className="text-black font-semibold border border-red-500 rounded-xl px-5">Undo</button>
+                  <button onClick={onUndoClick} className="drop-shadow-md text-black font-semibold bg-red-300 rounded-xl p-1 w-20">Undo</button>
                   :
-                  <button onClick={onGetClick} className={`${item.obtained && "opacity-50"} text-black font-semibold border border-green-500 rounded-xl px-5`} disabled={item.obtained === true}>Get</button>
+                  <button onClick={onGetClick} className={`${item.obtained && "opacity-50"} text-black font-semibold border bg-green-300 rounded-xl p-1 w-20 drop-shadow-md`} disabled={item.obtained === true}>Get</button>
               }
             </div>
         }

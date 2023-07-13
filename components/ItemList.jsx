@@ -33,7 +33,7 @@ const ItemList = ({ setShowItemForm, showItemForm, session, setItemFormAction, i
       {
         session?.user.id !== listId
         ?
-        <Link className="flex items-center mt-5 font-semibold border rounded-lg border-black p-1" href={"/"}>
+        <Link className="flex items-center mt-5 font-semibold bg-orange-300 rounded-lg p-1" href={"/"}>
           <span className="mr-1">Back To My List</span>
           <AiOutlineArrowLeft />
         </Link>
@@ -41,7 +41,7 @@ const ItemList = ({ setShowItemForm, showItemForm, session, setItemFormAction, i
         showItemForm && <ItemForm setFormTitle={setFormTitle} itemToEdit={itemToEdit} setShowItemForm={setShowItemForm} setItems={setItems} action={itemFormAction} />
       }
 
-      <div className={`${items.length < 1 && "items-center"} mt-5 flex flex-col w-full md:w-2/4 grow overflow-auto`}>
+      <div className={`${items.length < 1 && "items-center"} item-list mt-5 flex flex-col w-full md:w-2/4 grow overflow-auto`}>
         {
           items.length < 1
             ?

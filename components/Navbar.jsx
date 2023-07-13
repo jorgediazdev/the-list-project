@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between px-4 h-[7%] bg-neutral-800 items-center">
       {showSettings && <Settings setShowSettings={setShowSettings} />}
-      <Link href="/" className="text-white" >The List Project<br />(Alpha v0.1.0)</Link>
+      <Link href="/" className="text-white" >The List Project<br />(v0.1.0-alpha)</Link>
       <div className="flex">
         {session?.user.id && <Link className="text-white" href={"/feedback"}>Feedback</Link>}
         {

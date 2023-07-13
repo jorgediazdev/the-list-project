@@ -84,8 +84,8 @@ const ItemForm = ({ setShowItemForm, setItems, action, itemToEdit, setFormTitle 
         <textarea className="w-full p-1 border border-black resize-none my-1 h-14 rounded" name="description" id="description" placeholder={`${action === "edit" ? itemToEdit.description || "" : "e.g. color or size"}`} onChange={handleItemDescriptionChange} value={itemDescription}></textarea>
       </div>
       <div className="flex justify-evenly border-black w-full">
-        <button onClick={action === "add" ? handleAddOnClick : handleEditClick} className="h-10 w-2/5 md:w-20 border border-black rounded bg-black text-white">{action === "add" ? "Add" : "Edit"}</button>
-        <button onClick={handleCancelOnClick} className="h-10 w-2/5 md:w-20 border border-black rounded bg-white">Cancel</button>
+        <button onClick={action === "add" ? handleAddOnClick : handleEditClick} className="h-10 w-2/5 md:w-20 bg-green-300 rounded bg-black text-black font-semibold drop-shadow-md">{action === "add" ? "Add" : "Edit"}</button>
+        <button onClick={handleCancelOnClick} className="drop-shadow-md h-10 w-2/5 md:w-20 rounded bg-red-300 font-semibold">Cancel</button>
       </div>
     </div>
   );

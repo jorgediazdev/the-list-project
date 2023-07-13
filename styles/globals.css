@@ -26,3 +26,11 @@ html, body {
     background-color: #000000;
     border-radius: 10px;
   }
+
+  .item-list>.item:nth-child(odd){
+    background-color:white !important;
+   }
+   
+   .item-list>.item:nth-child(even){
+    background-color: #e5e5e5 !important;
+   }
