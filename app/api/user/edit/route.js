@@ -1,5 +1,6 @@
 import { connectToDB } from "@/db";
 import { getToken } from "next-auth/jwt";
+import bcrypt from "bcrypt";
 import User from "@/models/userModel";
 
 export const POST = async (req, res) => {
@@ -32,4 +33,19 @@ export const POST = async (req, res) => {
   }
 
   return new Response("Not authorized.");
+}
+
+export const PATCH = async (req, res) => {
+  const body = await req.json()
+  const userId = body.userId;
+  const password = body.password;
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const user = await User.findByIdAndUpdate(userId, { password: hashedPassword });
+
+  if (user) {
+    return new Response(JSON.stringify({ success: true }));
+  } else {
+    return new Response(JSON.stringify({ success: false, message: "Something went wrong." }));
+  }
 }

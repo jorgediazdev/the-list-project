@@ -15,8 +15,6 @@ export const GET = async (req, res) => {
 
     const currentUser = await User.findById(userId);
 
-    console.log(currentUser)
-
     return new Response(JSON.stringify(currentUser));
   } catch (error) {
     console.log(error)

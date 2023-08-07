@@ -48,7 +48,8 @@ const LoginForm = () => {
         <input className="h-10 p-1 rounded border border-black" type="password" placeholder="Enter Password" onChange={(event) => setPassword(event.target.value)} value={password} />
       </div>
       <button onClick={handleLogin} className="bg-black rounded h-10 text-lg text-white mb-5">Login</button>
-      <div className="w-full flex justify-end">
+      <div className="w-full flex justify-between">
+        <Link href="/forgotpassword" className="text-blue-700 hover:text-blue-300 hover:cursor-pointer">Forgot Password?</Link>
         <Link href="/register" className="text-blue-700 hover:text-blue-300 hover:cursor-pointer">Don't have an account? Register.</Link>
       </div>
     </div>
