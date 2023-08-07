@@ -24,7 +24,7 @@ const ResetPasswordForm = ({ userId }) => {
       const results = await response.json();
 
       if (results.success) {
-        setSuccessMessage("Your password has been update.");
+        setSuccessMessage("Your password has been updated.");
       } else {
         console.log(results);
       }
